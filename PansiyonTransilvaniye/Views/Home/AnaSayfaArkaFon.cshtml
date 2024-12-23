@@ -1,0 +1,33 @@
+﻿@model IEnumerable<PansiyonTransilvaniye.Models.AnaSayfaResimler>
+
+@{
+    ViewBag.Title = "AnaSayfaArkaFon";
+}
+<section class="home-slider owl-carousel">
+    @foreach (var item in Model)
+    {
+        if (item.AnaSayfaResimleri != null)
+        {
+            var base64 = Convert.ToBase64String(item.AnaSayfaResimleri);
+            var src = string.Format("data:image/gif;base64,{0}", base64);
+            <img style="width:100%;height:780px;" src="@src" alt="">
+        }
+    }
+</section>
+
+        @*<section class="home-slider owl-carousel" style="height:100%;">
+                @foreach (var item in Model)
+                {
+                    <div class="slider-item">
+
+                        @if (item.AnaSayfaResimleri != null)
+                        {
+                            var base64 = Convert.ToBase64String(item.AnaSayfaResimleri);
+                            var src = string.Format("data:image/gif;base64,{0}", base64);
+                            <img src="@src">
+                        }
+
+                        <div class="overlay"></div>
+                    </div>
+                }
+            </section>*@

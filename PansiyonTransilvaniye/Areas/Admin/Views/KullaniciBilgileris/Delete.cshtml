@@ -1,0 +1,52 @@
+﻿@model PansiyonTransilvaniye.Models.KullaniciBilgileri
+@if (Session["Id"] == null)
+{
+    Response.Redirect("~/Login/Loged");
+}
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sil</h2>
+
+<div>
+    <h4>KullaniciBilgileri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KullaniciAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sifre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hakkimizda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hakkimizda)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class=" btn btn-primary" , style="background-color:#2fee50" />
+            @Html.ActionLink("Geri Dön", "Index", null, new { @class = " btn btn-primary", @style = "background-color:#2fee50" })
+        </div>
+    }
+</div>

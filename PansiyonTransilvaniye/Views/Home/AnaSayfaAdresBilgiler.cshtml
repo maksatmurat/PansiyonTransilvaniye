@@ -1,0 +1,17 @@
+﻿@model IEnumerable<PansiyonTransilvaniye.Models.IletisimBilgileri>
+
+
+
+@foreach (var item in Model) {
+
+<ul class="list-unstyled">
+    <li><a href="#" class="py-2 d-block">@Html.Raw(item.Il)</a></li>
+    <li><a href="#" class="py-2 d-block">@Html.Raw(item.Ilce)</a></li>
+    <li><a href="#" class="py-2 d-block">@Html.Raw(item.Mah)</a></li>
+    <li><a href="#" class="py-2 d-block">@Html.Raw(item.AcikAdres)</a></li>
+    <li><a href="#" class="py-2 d-block">@Html.Raw(item.telNo)</a></li>
+    <li><a href="#" class="py-2 d-block">@Html.Raw(item.Email)</a></li>
+</ul>
+}
+
+

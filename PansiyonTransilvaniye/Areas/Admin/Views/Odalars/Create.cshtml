@@ -1,0 +1,75 @@
+﻿@model PansiyonTransilvaniye.Models.Odalar
+@if (Session["Id"] == null)
+{
+    Response.Redirect("~/Login/Loged");
+}
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+
+<h2>Oda Ekleme Sayfası</h2>
+
+
+@using (Html.BeginForm("Create", "Odalars", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.OdaUcreti, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OdaUcreti, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OdaUcreti, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OdaAdi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OdaAdi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OdaAdi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OdaOzellikleri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextArea("OdaOzellikleri")
+                <script type="text/javascript">
+                    var editor = CKEDITOR.instances['OdaOzellikleri'];
+                    if (editor) { editor.destroy(true); }
+                    CKEDITOR.replace('OdaOzellikleri', {
+                        enterMode: CKEDITOR.ENTER_BR,
+
+                    });
+                </script>
+                @Html.ValidationMessageFor(model => model.OdaOzellikleri, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.LabelFor(model => model.OdaResimleri, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="OdaResimi" />
+            @Html.ValidationMessageFor(model => model.OdaResimleri, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Ekle" class=" btn btn-primary" , style="background-color:#2fee50" />
+                @Html.ActionLink("Geri Dön", "Index", null, new { @class = " btn btn-primary", @style = "background-color:#2fee50" })
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

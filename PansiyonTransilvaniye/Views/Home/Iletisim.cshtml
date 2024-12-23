@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PansiyonTransilvaniye.Models.IletisimBilgileri>
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="home-slider owl-carousel">
+    <div class="slider-item" style="background-image: url('../../Content/images/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text align-items-end">
+                <div class="col-md-10 col-sm-12 ftco-animate mb-4">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/Home/Index">Ana Sayfa</a></span> <span>İletişim</span></p>
+                    <h1 class="mb-3">Bizimle İletişime Geçin</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@Html.Raw(TempData["msg"])
+
+@foreach (var item in Model)
+{
+<section class="ftco-section contact-section">
+    <div class="container bg-light">
+        <div class="row d-flex mb-5 contact-info">
+            <div class="col-md-12 mb-4">
+                <h2 class="h4">İletişim Bilgileri</h2>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-4">
+                <p><span>Açık Adres:</span>@Html.Raw(item.AcikAdres)</p>
+                <p><span>İl:</span>@Html.Raw(item.Il)</p>
+                <p><span>İlçe:</span>@Html.Raw(item.Ilce)</p>
+                <p><span>Mahalle:</span>@Html.Raw(item.Mah)</p>
+            </div>
+            <div class="col-md-4">
+                <p><span>Telefon No:</span> <a href="#">@Html.Raw(item.telNo)</a></p>
+                <p><span>Cep Tel:</span> <a href="#">0532 310 9254</a></p>
+
+            </div>
+            <div class="col-md-4">
+                <p><span>Email:</span> <a href="#">@Html.Raw(item.Email)</a></p>
+            </div>
+            
+        </div>
+        <div class="row ">
+            <div class="col-md-12 ">
+                <form method="post" action="@Url.Action("Feedback","Home")">
+                    <div class="form-group">
+                        <input type="text" name="Name" class="form-control" placeholder="Adınız">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="Email" class="form-control" placeholder="Email Hesabınız">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="KonuBaslik" class="form-control" placeholder="Konu">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="Text" id="" cols="30" rows="7" class="form-control" placeholder="Mesaj"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Mesaj Gönder" class="btn btn-primary py-3 px-5">
+                    </div>
+                    <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Posted your message successfully!</h3> </div>
+                    <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+}
+

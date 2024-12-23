@@ -1,0 +1,74 @@
+﻿@model PansiyonTransilvaniye.Models.IletisimBilgileri
+@if (Session["Id"] == null)
+{
+    Response.Redirect("~/Login/Loged");
+}
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sil</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.telNo)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.telNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Il)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Il)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ilce)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ilce)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mah)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcikAdres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcikAdres)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class=" btn btn-primary" , style="background-color:#2fee50" />
+            @Html.ActionLink("İletişim Bilgileri", "Index", null, new { @class = " btn btn-primary", @style = "background-color:#2fee50" })
+        </div>
+    }
+</div>

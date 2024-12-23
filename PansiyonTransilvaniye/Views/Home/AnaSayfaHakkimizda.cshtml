@@ -1,0 +1,11 @@
+﻿@model IEnumerable<PansiyonTransilvaniye.Models.KullaniciBilgileri>
+
+@{
+    ViewBag.Title = "AnaSayfaHakkimizda";
+}
+
+@foreach (var item in Model)
+{
+    <p style="font-size:0.9vw"> @Html.Raw(item.Hakkimizda);</p>
+}
+

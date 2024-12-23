@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PansiyonTransilvaniye.Models.KullaniciBilgileri>
+
+@{
+    ViewBag.Title = "Hakkimizda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="home-slider owl-carousel">
+    <div class="slider-item" style="background-image: url('../../Content/images/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text align-items-end">
+                <div class="col-md-10 col-sm-12 ftco-animate mb-4">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/Home/Index">AnaSayfa</a></span> <span>Hakkımızda</span></p>
+                    <h1 class="mb-3">Hakkımızda</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section-2">
+    <div class="row section-2-blocks-wrapper d-flex">
+        
+            <div class="col-lg-8 col-md-12" style="padding-left:15%">
+                <p class="ftco-animate" style="font-size:0.9vw;">
+                    @foreach (var item in Model)
+                    {
+                        @Html.Raw(item.Hakkimizda)
+                    }
+                    </p>
+</div>
+            <div class="img col-lg-3 col-md-12 order-last" style="background-image: url('../../Content/images/about-2.jpg');">
+
+            </div>
+        
+    </div>
+</section>
+@*<section class="ftco-section-2">
+    <div class="container d-flex">
+        <div class="section-2-blocks-wrapper row d-flex">
+            <div class="text col-lg-4 order-first ftco-animate">
+                <div class="text-inner align-self-start">
+                    @foreach (var item in Model)
+                    {
+                        <p>@Html.Raw(item.Hakkimizda)</p>
+                    }
+                </div>
+            </div>
+            <div class="img col-sm-12 col-lg-6 order-last" style="background-image: url('../../Content/images/about-2.jpg');">
+            </div>
+        </div>
+    </div>
+</section>*@

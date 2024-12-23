@@ -1,0 +1,102 @@
+﻿@model PansiyonTransilvaniye.Models.IletisimBilgileri
+@if (Session["Id"] == null)
+{
+    Response.Redirect("~/Login/Loged");
+}
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+
+<h2>İletişim Bilgileri Güncelle</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.telNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextArea("telNo")
+                <script type="text/javascript">
+                    var editor = CKEDITOR.instances['telNo'];
+                    if (editor) { editor.destroy(true); }
+                    CKEDITOR.replace('telNo', {
+                        enterMode: CKEDITOR.ENTER_BR,
+
+                    });
+                </script>
+                @Html.ValidationMessageFor(model => model.telNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Il, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Il, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Il, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ilce, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ilce, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ilce, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mah, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mah, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mah, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AcikAdres, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextArea("AcikAdres")
+                <script type="text/javascript">
+                    var editor = CKEDITOR.instances['AcikAdres'];
+                    if (editor) { editor.destroy(true); }
+                    CKEDITOR.replace('AcikAdres', {
+                        enterMode: CKEDITOR.ENTER_BR,
+
+                    });
+                </script>
+                @*<textarea rows="5" cols="70" @Html.TextAreaFor(model => model.AcikAdres, new { htmlAttributes = new { @class = "form-control" } })></textarea>*@
+                @Html.ValidationMessageFor(model => model.AcikAdres, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kayıt" class=" btn btn-primary" , style="background-color:#2fee50" />
+                @Html.ActionLink("Geri Dön", "Index", null, new { @class = " btn btn-primary", @style = "background-color:#2fee50" })
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

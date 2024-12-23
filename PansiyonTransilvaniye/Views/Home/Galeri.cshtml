@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PansiyonTransilvaniye.Models.Galeri>
+
+@{
+    ViewBag.Title = "Galeri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="home-slider owl-carousel">
+    <div class="slider-item" style="background-image: url('../../Content/images/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text align-items-end">
+                <div class="col-md-10 col-sm-12 ftco-animate mb-4">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/Home/Index">Ana Sayfa</a></span> <span>Galeri</span></p>
+                    <h1 class="mb-3">Galerimize Göz Gezdirin</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container" style="padding-top:3%">
+    <div class="row ftco-animate">
+        <div class="carousel1 owl-carousel ftco-owl">
+            @foreach (var item in Model)
+            {
+                <div class="item">
+
+
+                    @if (item.GaleriResimler != null)
+                    {
+                        var base64 = Convert.ToBase64String(item.GaleriResimler);
+                        var src = string.Format("data:image/gif;base64,{0}", base64);
+                        <div class="img-responsive">
+                            <img src="@src" alt="Resim" style="max-height:700px;max-width:100%;" />
+                        </div>
+                    }
+
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

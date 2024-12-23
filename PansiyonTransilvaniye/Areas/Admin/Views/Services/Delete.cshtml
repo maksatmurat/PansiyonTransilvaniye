@@ -1,0 +1,38 @@
+﻿@model PansiyonTransilvaniye.Models.Services
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sil</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceOzellik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceOzellik)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Sil" class=" btn btn-primary" , style="background-color:#2fee50" />
+        @Html.ActionLink("Servislere Dön", "Index", null, new { @class = " btn btn-primary", @style = "background-color:#2fee50" })
+    </div>
+    }
+</div>

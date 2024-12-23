@@ -1,0 +1,128 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" class="full-height">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link href="~/Areas/Admin/Content/demo.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/material-dashboard.css" rel="stylesheet" />
+</head>
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" style="background-image:url(../../Content/img/Pansiyon1.jpg);" >
+            <!--
+                Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+                Tip 2: you can also add an image using data-image tag
+            -->
+            <div class="logo">
+                <a href="#" class="simple-text logo-normal">
+                    PanSion
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/Admin/IletisimBilgileris/Index">
+                            <i class="material-icons" style="color:#489af1">dashboard</i>
+                            <p>İletişim Bilgileri</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/Admin/Odalars/Index">
+                            <i class="material-icons" style="color:#2fee50">dashboard</i>
+                            <p>Odalar</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/Admin/AnaSayfaResimlers/Index">
+                            <i class="material-icons" style="color:#137c7c">dashboard</i>
+                            <p>Ana Sayfa Resim Ayarları</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/Admin/Galeris/Index">
+                            <i class="material-icons" style="color:#4f75ee">dashboard</i>
+                            <p>Galeri Resim Ayarları</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/Admin/KullaniciBilgileris/Index">
+                            <i class="material-icons">library_books</i>
+                            <p>Kullanıcı Bilgileri</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/Admin/Services/Index">
+                            <i class="material-icons">dashboard</i>
+                            <p>Servisler</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/Login/cikis">
+                            <i class="fa fa-edit fa-fw"></i>
+                            <p>Çıkış</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " >
+                    <div class="container-fluid">
+                        <div class="navbar-wrapper">
+                            <a class="navbar-brand" href="#pablo"></a>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end">
+                            
+                          
+                        </div>
+                    </div>
+                </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--   Core JS Files   -->
+
+    <script src="~/Areas/Admin/Scripts/core/bootstrap-material-design.min.js"></script>
+    <script src="~/Areas/Admin/Scripts/core/jquery.min.js"></script>
+    <script src="~/Areas/Admin/Scripts/core/popper.min.js"></script>
+    <script src="~/Areas/Admin/Scripts/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Chartist JS -->
+    <script src="~/Areas/Admin/Scripts/plugins/chartist.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="~/Areas/Admin/Scripts/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="~/Areas/Admin/Scripts/material-dashboard.min.js"></script>
+    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+    <script src="~/Areas/Admin/Scripts/demo.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Javascript method's body can be found in assets/js/demos.js
+            md.initDashboardPageCharts();
+
+        });
+    </script>
+</body>
+</html>

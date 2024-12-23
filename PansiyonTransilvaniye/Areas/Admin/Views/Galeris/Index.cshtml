@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PansiyonTransilvaniye.Models.Galeri>
+@if (Session["Id"] == null)
+{
+    Response.Redirect("~/Login/Loged");
+}
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Galeri Resimleri</h2>
+
+<p>
+    @Html.ActionLink("Resim Ekle", "Create", null, new { @class = " btn btn-primary", @style = "background-color:#2fee50" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GaleriResimler)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.Raw("<img style='width:100px; height:100px;' src=\"data:image/jpeg;base64,"
+                                    + Convert.ToBase64String(item.GaleriResimler) + "\" />")
+            </td>
+            <td>
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = " btn btn-primary", @style = "background-color:#2fee50" })
+
+            </td>
+        </tr>
+    }
+
+</table>

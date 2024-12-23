@@ -1,0 +1,38 @@
+﻿@model PansiyonTransilvaniye.Models.AnaSayfaResimler
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Ana Sayfa Resim Ekle</h2>
+
+
+@using (Html.BeginForm("Create", "AnaSayfaResimlers", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+     
+            @Html.LabelFor(model => model.AnaSayfaResimleri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="AnaSayfa" />
+                @Html.ValidationMessageFor(model => model.AnaSayfaResimleri, "", new { @class = "text-danger" })
+            </div>
+      
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Ekle" class=" btn btn-primary" , style="background-color:#2fee50" />
+                @Html.ActionLink("Geri Dön", "Index", null, new { @class = " btn btn-primary", @style = "background-color:#2fee50" })
+            </div>
+        </div>
+    </div>
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
